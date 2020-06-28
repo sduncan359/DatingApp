@@ -29,6 +29,7 @@ import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanged } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { TimeagoModule } from 'ngx-timeago';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -50,6 +51,7 @@ export function tokenGetter() {
    ],
    imports: [
       BrowserModule,
+      TimeagoModule.forRoot(),
       BrowserAnimationsModule,
       HttpClientModule,
       FormsModule,
@@ -60,7 +62,7 @@ export function tokenGetter() {
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
-      FileUploadModule,
+      FileUploadModule,   
       JwtModule.forRoot({
          config: {
             tokenGetter,
